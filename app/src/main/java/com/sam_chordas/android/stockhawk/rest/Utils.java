@@ -139,6 +139,11 @@ public class Utils {
     }
     return builder.build();
   }
+  /*
+  *isStockSymbolValid checks if Bid and Change node of the JSONObject is not null
+  *@params a JSONObject
+  *return true or false
+  */
   public static boolean isStockSymbolValid(JSONObject jsonObject){
     return !jsonObject.isNull("Bid") && !jsonObject.isNull("Change");
   }
