@@ -86,11 +86,12 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
               @Override public void onItemClick(View v, int position) {
                 //TODO:
                 // do something on item click
-
+                
+                //getting symbol from the database
                 mCursor.moveToPosition(position);
                 int dateColumnIndex = mCursor.getColumnIndex(QuoteColumns.SYMBOL);
                 String symbol = mCursor.getString(dateColumnIndex);
-//                Intent myIntent = new Intent(mContext, DetailActivity.class);
+
                 Intent myIntent = new Intent(mContext, DetailActivity.class);
                 myIntent.putExtra("symbol",symbol);
                 mContext.startActivity(myIntent);
@@ -229,9 +230,5 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   @Override
   public void onLoaderReset(Loader<Cursor> loader){
     mCursorAdapter.swapCursor(null);
-  }
-
-  public void showToast(String message){
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
   }
 }
